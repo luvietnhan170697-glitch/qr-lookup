@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Tra cứu QR</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:#f5f5f5;
+}
+
+.container{
+width:400px;
+margin:100px auto;
+background:white;
+padding:30px;
+border-radius:8px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+input{
+width:100%;
+padding:10px;
+margin-top:10px;
+font-size:16px;
+}
+
+button{
+margin-top:15px;
+padding:10px;
+width:100%;
+font-size:16px;
+background:#007bff;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+button:hover{
+background:#0056b3;
+}
+
+.error{
+color:red;
+margin-top:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>TRA CỨU MÃ QR</h2>
+
+<form method="post">
+
+<input type="text" name="cccd" placeholder="Nhập số CCCD">
+
+<button type="submit">Tra cứu</button>
+
+</form>
+
+{% if error %}
+<p class="error">{{error}}</p>
+{% endif %}
+
+</div>
+
+</body>
+</html>
