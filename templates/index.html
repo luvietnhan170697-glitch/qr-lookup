@@ -1,76 +1,112 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<title>Tra cứu QR</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tra cứu mã QR - Trung tâm GDNN & SHLX Đặng Lâm</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+        }
 
-<style>
+        .container {
+            max-width: 520px;
+            margin: 80px auto;
+            background: white;
+            padding: 32px;
+            border-radius: 14px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            text-align: center;
+        }
 
-body{
-font-family: Arial;
-background:#f5f5f5;
-}
+        .brand {
+            margin-bottom: 24px;
+        }
 
-.container{
-width:400px;
-margin:100px auto;
-background:white;
-padding:30px;
-border-radius:8px;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
-text-align:center;
-}
+        .brand h2 {
+            margin: 0;
+            font-size: 24px;
+            color: #0d47a1;
+            font-weight: 700;
+            line-height: 1.4;
+            text-transform: uppercase;
+        }
 
-input{
-width:100%;
-padding:10px;
-margin-top:10px;
-font-size:16px;
-}
+        .brand p {
+            margin: 8px 0 0;
+            font-size: 14px;
+            color: #666;
+        }
 
-button{
-margin-top:15px;
-padding:10px;
-width:100%;
-font-size:16px;
-background:#007bff;
-color:white;
-border:none;
-cursor:pointer;
-}
+        h1 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: #222;
+        }
 
-button:hover{
-background:#0056b3;
-}
+        input[type="text"] {
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            margin-bottom: 14px;
+        }
 
-.error{
-color:red;
-margin-top:10px;
-}
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #1976d2;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
 
-</style>
+        button:hover {
+            background: #125db2;
+        }
 
+        .error {
+            margin-top: 16px;
+            color: #d32f2f;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .footer-note {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #777;
+        }
+    </style>
 </head>
-
 <body>
+    <div class="container">
+        <div class="brand">
+            <h2>Trung tâm GDNN & SHLX Đặng Lâm</h2>
+            <p>Hệ thống tra cứu mã QR học viên</p>
+        </div>
 
-<div class="container">
+        <h1>TRA CỨU MÃ QR</h1>
 
-<h2>TRA CỨU MÃ QR</h2>
+        <form method="POST">
+            <input type="text" name="cccd" placeholder="Nhập số CCCD">
+            <button type="submit">Tra cứu</button>
+        </form>
 
-<form method="post">
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
 
-<input type="text" name="cccd" placeholder="Nhập số CCCD">
-
-<button type="submit">Tra cứu</button>
-
-</form>
-
-{% if error %}
-<p class="error">{{error}}</p>
-{% endif %}
-
-</div>
-
+        <div class="footer-note">
+            Vui lòng nhập đúng số CCCD để tra cứu thông tin mã QR.
+        </div>
+    </div>
 </body>
 </html>
