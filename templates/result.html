@@ -2,50 +2,102 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Kết quả tra cứu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kết quả tra cứu - Trung tâm GDNN & SHLX Đặng Lâm</title>
     <style>
         body {
+            margin: 0;
             font-family: Arial, sans-serif;
-            background: #f4f6f8;
-            text-align: center;
-            padding: 40px;
+            background: #f4f6f9;
         }
-        .box {
-            width: 520px;
-            margin: auto;
+
+        .container {
+            max-width: 600px;
+            margin: 60px auto;
             background: white;
-            padding: 24px;
-            border-radius: 12px;
-            box-shadow: 0 0 12px rgba(0,0,0,0.08);
+            padding: 32px;
+            border-radius: 14px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            text-align: center;
         }
+
+        .brand h2 {
+            margin: 0;
+            font-size: 24px;
+            color: #0d47a1;
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 1.4;
+        }
+
+        .brand p {
+            margin: 8px 0 24px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        h1 {
+            margin-bottom: 24px;
+            color: #222;
+        }
+
+        .info {
+            text-align: left;
+            background: #f8fafc;
+            padding: 18px;
+            border-radius: 10px;
+            margin-bottom: 24px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .info p {
+            margin: 10px 0;
+            font-size: 16px;
+            color: #333;
+        }
+
         img {
-            max-width: 320px;
-            margin-top: 20px;
+            max-width: 280px;
             border: 1px solid #ddd;
+            border-radius: 10px;
             padding: 10px;
-            border-radius: 8px;
+            background: #fff;
         }
-        a {
+
+        .back-link {
             display: inline-block;
-            margin-top: 18px;
+            margin-top: 24px;
             text-decoration: none;
+            color: white;
+            background: #1976d2;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            background: #125db2;
         }
     </style>
 </head>
 <body>
-    <div class="box">
-        <h2>KẾT QUẢ TRA CỨU</h2>
-        <p><strong>Họ tên:</strong> {{ student_name }}</p>
-        <p><strong>CCCD:</strong> {{ cccd }}</p>
-
-        <img src="{{ url_for('serve_qr', filename=filename) }}" alt="QR">
-
-        <div>
-            <a href="{{ url_for('serve_qr', filename=filename) }}" download>Tải ảnh QR</a>
+    <div class="container">
+        <div class="brand">
+            <h2>Trung tâm GDNN & SHLX Đặng Lâm</h2>
+            <p>Hệ thống tra cứu mã QR học viên</p>
         </div>
-        <div>
-            <a href="{{ url_for('index') }}">Tra cứu lại</a>
+
+        <h1>KẾT QUẢ TRA CỨU</h1>
+
+        <div class="info">
+            <p><strong>Họ và tên:</strong> {{ student_name }}</p>
+            <p><strong>Số CCCD:</strong> {{ cccd }}</p>
         </div>
+
+        <img src="{{ url_for('serve_qr', filename=filename) }}" alt="Mã QR">
+
+        <br>
+        <a href="{{ url_for('index') }}" class="back-link">Tra cứu lại</a>
     </div>
 </body>
 </html>
