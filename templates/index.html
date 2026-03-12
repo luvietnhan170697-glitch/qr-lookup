@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+<<<<<<< HEAD
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cổng tra cứu mã QR - Trung tâm GDNN & SHLX Đặng Lâm</title>
@@ -214,8 +215,171 @@
             }
         }
     </style>
+=======
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cổng tra cứu mã QR - Trung tâm GDNN & SHLX Đặng Lâm</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f1f5f9;
+}
+
+/* HEADER */
+
+.header{
+    background:#0f4fa8;
+    padding:18px 0;
+}
+
+.header-container{
+    max-width:1000px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    gap:18px;
+    padding:0 20px;
+}
+
+.logo{
+    width:80px;
+}
+
+.center-name{
+    color:white;
+    font-size:26px;
+    font-weight:700;
+    white-space:nowrap;
+}
+
+/* FORM */
+
+.page{
+    display:flex;
+    justify-content:center;
+    padding:50px 20px;
+}
+
+.card{
+    width:100%;
+    max-width:650px;
+    background:white;
+    border-radius:12px;
+    box-shadow:0 6px 25px rgba(0,0,0,0.08);
+    padding:35px;
+}
+
+.title{
+    text-align:center;
+    font-size:26px;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.desc{
+    text-align:center;
+    color:#666;
+    font-size:14px;
+    margin-bottom:30px;
+}
+
+.label{
+    font-weight:600;
+    font-size:14px;
+}
+
+.input{
+    width:100%;
+    height:50px;
+    border:1px solid #cbd5e1;
+    border-radius:8px;
+    padding:0 15px;
+    font-size:16px;
+    margin-top:6px;
+}
+
+.input:focus{
+    outline:none;
+    border-color:#0f4fa8;
+}
+
+.btn{
+    margin-top:18px;
+    width:100%;
+    height:50px;
+    border:none;
+    border-radius:8px;
+    background:#0f4fa8;
+    color:white;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.btn:hover{
+    background:#0b3f86;
+}
+
+/* THÔNG BÁO */
+
+.notice{
+    margin-top:22px;
+    padding:14px;
+    background:#fff3cd;
+    border:1px solid #ffeeba;
+    border-radius:8px;
+    font-size:14px;
+}
+
+.hotline{
+    margin-top:12px;
+    padding:14px;
+    background:#e7f1ff;
+    border:1px solid #c7ddff;
+    border-radius:8px;
+    font-size:14px;
+}
+
+.error{
+    margin-top:16px;
+    padding:12px;
+    background:#ffe4e4;
+    border-radius:6px;
+    color:#b91c1c;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+.center-name{
+    font-size:18px;
+}
+
+.logo{
+    width:60px;
+}
+
+.card{
+    padding:25px;
+}
+
+}
+
+</style>
+>>>>>>> 314e0c36c82d51b829d6fffe6260da85afafd2bc
 </head>
+
 <body>
+<<<<<<< HEAD
     <div class="page">
         <div class="card">
             <div class="card-top">
@@ -265,6 +429,80 @@
                 </div>
             </div>
         </div>
+=======
+
+<div class="header">
+
+    <div class="header-container">
+
+        <img src="{{ url_for('static', filename='logo.png') }}" class="logo">
+
+        <div class="center-name">
+            TRUNG TÂM GDNN & SHLX ĐẶNG LÂM
+        </div>
+
+>>>>>>> 314e0c36c82d51b829d6fffe6260da85afafd2bc
     </div>
+
+</div>
+
+
+<div class="page">
+
+<div class="card">
+
+<div class="title">
+TRA CỨU MÃ QR
+</div>
+
+<div class="desc">
+Vui lòng nhập đúng số CCCD để tra cứu mã QR học viên
+</div>
+
+
+<form method="POST">
+
+<label class="label">Số CCCD</label>
+
+<input
+type="text"
+name="cccd"
+class="input"
+placeholder="Nhập số CCCD"
+autocomplete="off"
+>
+
+<button class="btn">
+Tra cứu
+</button>
+
+</form>
+
+
+{% if error %}
+<div class="error">
+{{ error }}
+</div>
+{% endif %}
+
+
+<div class="notice">
+
+⚠️ Lưu ý: Đề nghị thí sinh sử dụng đúng tài khoản ngân hàng chính chủ để thực hiện thanh toán lệ phí.
+
+</div>
+
+
+<div class="hotline">
+
+Mọi thông tin thắc mắc vui lòng liên hệ hotline Trung tâm GDNN & SHLX Đặng Lâm:
+<strong>0868.79.1331</strong>
+
+</div>
+
+</div>
+
+</div>
+
 </body>
 </html>
