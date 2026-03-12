@@ -4,8 +4,9 @@ from flask import Flask, render_template, request, send_from_directory, abort
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 QR_FOLDER = os.path.join(BASE_DIR, "qr_images")
+STATIC_FOLDER = os.path.join(BASE_DIR, "static")
 
-app = Flask(__name__, template_folder="templates")
+app = Flask(__name__, template_folder="templates", static_folder="static")
 
 
 def normalize_cccd(text):
@@ -17,7 +18,7 @@ def parse_name_from_filename(filename):
     parts = stem.split("_")
     if len(parts) >= 2:
         return " ".join(parts[:-1]).title()
-    return stem
+    return stem.title()
 
 
 def find_qr_file_by_cccd(cccd):
@@ -46,11 +47,11 @@ def index():
         cccd = normalize_cccd(request.form.get("cccd"))
 
         if not cccd:
-            return render_template("index.html", error="Vui lòng nhập CCCD.")
+            return render_template("index.html", error="Vui lòng nhập số CCCD.")
 
         filename = find_qr_file_by_cccd(cccd)
         if not filename:
-            return render_template("index.html", error="Không tìm thấy QR cho CCCD này.")
+            return render_template("index.html", error="Không tìm thấy mã QR cho CCCD này.")
 
         student_name = parse_name_from_filename(filename)
         return render_template(

@@ -3,109 +3,267 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tra cứu mã QR - Trung tâm GDNN & SHLX Đặng Lâm</title>
+    <title>Cổng tra cứu mã QR - Trung tâm GDNN & SHLX Đặng Lâm</title>
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f6f9;
+        * {
+            box-sizing: border-box;
         }
 
-        .container {
-            max-width: 520px;
-            margin: 80px auto;
-            background: white;
-            padding: 32px;
-            border-radius: 14px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #eef3f9 0%, #f8fafc 100%);
+            color: #1f2937;
+        }
+
+        .page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 760px;
+            background: #ffffff;
+            border-radius: 22px;
+            box-shadow: 0 18px 50px rgba(15, 23, 42, 0.10);
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+        }
+
+        .card-top {
+            background: linear-gradient(135deg, #0f4fa8 0%, #1565c0 100%);
+            color: #fff;
+            padding: 30px 28px 26px;
             text-align: center;
         }
 
-        .brand {
-            margin-bottom: 24px;
+        .logo {
+            width: 112px;
+            height: 112px;
+            object-fit: contain;
+            background: #fff;
+            border-radius: 50%;
+            padding: 8px;
+            margin-bottom: 14px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
 
-        .brand h2 {
+        .unit-name {
             margin: 0;
-            font-size: 24px;
-            color: #0d47a1;
-            font-weight: 700;
-            line-height: 1.4;
+            font-size: 34px;
+            font-weight: 800;
+            line-height: 1.3;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .sub-title {
+            margin: 10px 0 0;
+            font-size: 17px;
+            opacity: 0.96;
+        }
+
+        .card-body {
+            padding: 34px 34px 30px;
+        }
+
+        .section-title {
+            margin: 0 0 10px;
+            text-align: center;
+            color: #0f172a;
+            font-size: 32px;
+            font-weight: 800;
             text-transform: uppercase;
         }
 
-        .brand p {
-            margin: 8px 0 0;
-            font-size: 14px;
-            color: #666;
+        .section-desc {
+            margin: 0 0 28px;
+            text-align: center;
+            color: #6b7280;
+            font-size: 15px;
+            line-height: 1.6;
         }
 
-        h1 {
-            margin-bottom: 20px;
-            font-size: 28px;
-            color: #222;
+        .form-group {
+            margin-bottom: 16px;
         }
 
-        input[type="text"] {
+        .label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 15px;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+
+        .input {
             width: 100%;
-            padding: 14px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            box-sizing: border-box;
-            margin-bottom: 14px;
+            height: 56px;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            padding: 0 18px;
+            font-size: 18px;
+            outline: none;
+            transition: 0.2s ease;
+            background: #fff;
         }
 
-        button {
+        .input:focus {
+            border-color: #1565c0;
+            box-shadow: 0 0 0 4px rgba(21, 101, 192, 0.12);
+        }
+
+        .btn {
             width: 100%;
-            padding: 14px;
-            background: #1976d2;
-            color: white;
-            font-size: 16px;
+            height: 56px;
             border: none;
-            border-radius: 8px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+            color: #fff;
+            font-size: 18px;
+            font-weight: 700;
             cursor: pointer;
-            font-weight: 600;
+            transition: 0.2s ease;
+            box-shadow: 0 10px 20px rgba(21, 101, 192, 0.20);
         }
 
-        button:hover {
-            background: #125db2;
+        .btn:hover {
+            transform: translateY(-1px);
+            opacity: 0.98;
         }
 
         .error {
             margin-top: 16px;
-            color: #d32f2f;
-            font-size: 14px;
-            font-weight: 500;
+            padding: 14px 16px;
+            border-radius: 12px;
+            background: #fee2e2;
+            border: 1px solid #fecaca;
+            color: #b91c1c;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .notice {
+            margin-top: 22px;
+            padding: 16px 18px;
+            border-radius: 14px;
+            background: #fff8db;
+            border: 1px solid #f7d774;
+            color: #7a5a00;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .notice strong {
+            color: #5f4300;
+        }
+
+        .hotline {
+            margin-top: 12px;
+            padding: 14px 16px;
+            border-radius: 14px;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            color: #1e3a8a;
+            font-size: 15px;
+            line-height: 1.7;
         }
 
         .footer-note {
-            margin-top: 20px;
+            margin-top: 22px;
+            text-align: center;
             font-size: 13px;
-            color: #777;
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .card-top {
+                padding: 24px 20px;
+            }
+
+            .logo {
+                width: 92px;
+                height: 92px;
+            }
+
+            .unit-name {
+                font-size: 24px;
+            }
+
+            .sub-title {
+                font-size: 15px;
+            }
+
+            .card-body {
+                padding: 24px 20px;
+            }
+
+            .section-title {
+                font-size: 26px;
+            }
+
+            .input,
+            .btn {
+                height: 52px;
+                font-size: 16px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="brand">
-            <h2>Trung tâm GDNN & SHLX Đặng Lâm</h2>
-            <p>Hệ thống tra cứu mã QR học viên</p>
-        </div>
+    <div class="page">
+        <div class="card">
+            <div class="card-top">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo Trung tâm" class="logo">
+                <h1 class="unit-name">Trung tâm GDNN & SHLX Đặng Lâm</h1>
+                <p class="sub-title">Cổng tra cứu mã QR chính thức dành cho học viên</p>
+            </div>
 
-        <h1>TRA CỨU MÃ QR</h1>
+            <div class="card-body">
+                <h2 class="section-title">Tra cứu mã QR</h2>
+                <p class="section-desc">
+                    Vui lòng nhập đúng số CCCD để tra cứu mã QR học viên trong hệ thống.
+                </p>
 
-        <form method="POST">
-            <input type="text" name="cccd" placeholder="Nhập số CCCD">
-            <button type="submit">Tra cứu</button>
-        </form>
+                <form method="POST">
+                    <div class="form-group">
+                        <label class="label" for="cccd">Số CCCD</label>
+                        <input
+                            type="text"
+                            id="cccd"
+                            name="cccd"
+                            class="input"
+                            placeholder="Nhập số CCCD"
+                            autocomplete="off"
+                        >
+                    </div>
 
-        {% if error %}
-            <div class="error">{{ error }}</div>
-        {% endif %}
+                    <button type="submit" class="btn">Tra cứu</button>
+                </form>
 
-        <div class="footer-note">
-            Vui lòng nhập đúng số CCCD để tra cứu thông tin mã QR.
+                {% if error %}
+                    <div class="error">{{ error }}</div>
+                {% endif %}
+
+                <div class="notice">
+                    <strong>⚠️ Lưu ý:</strong> Đề nghị thí sinh sử dụng đúng tài khoản ngân hàng chính chủ
+                    để thực hiện thanh toán lệ phí.
+                </div>
+
+                <div class="hotline">
+                    Mọi thông tin thắc mắc vui lòng liên hệ hotline Trung tâm GDNN & SHLX Đặng Lâm:
+                    <strong>0868.79.1331</strong>.
+                </div>
+
+                <div class="footer-note">
+                    Hệ thống tra cứu phục vụ học viên và công tác xác minh thông tin của Trung tâm.
+                </div>
+            </div>
         </div>
     </div>
 </body>
