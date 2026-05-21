@@ -1,0 +1,9 @@
+=============================== 
+Bat dau push GitHub: 21/05/2026 17:27:19.61 
+=============================== 
+true
+fatal: no rebase in progress
+Already on 'main'
+Your branch and 'origin/main' have diverged,
+and have 4 and 2 different commits each, respectively.
+  (use "git pull" if you want to integrate the remote branch with yours)
