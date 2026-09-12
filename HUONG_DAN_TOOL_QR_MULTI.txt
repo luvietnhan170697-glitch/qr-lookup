@@ -1,0 +1,55 @@
+HƯỚNG DẪN TOOL XUẤT QR THEO NHÓM TIỀN - MULTI FILE
+
+1. CÀI THƯ VIỆN
+   pip install openpyxl
+
+2. CHẠY TOOL
+   python tool_xuat_qr_theo_nhom_tien_multi.py
+
+3. IMPORT FILE
+Có 2 cách:
+- "Import nhiều file..." để chọn nhiều file Excel một lúc bằng Ctrl/Shift.
+- "Import cả thư mục..." để lấy toàn bộ .xlsx/.xlsm trong thư mục.
+
+Có thể import thêm nhiều lần. Tool tự tránh thêm trùng file.
+
+4. CẤU TRÚC MẶC ĐỊNH
+- Sheet: DanhSach
+- Họ tên: cột B
+- CCCD: cột D
+- Số tiền: cột F
+
+Có thể đổi trực tiếp trên giao diện.
+
+5. QUÉT NHÓM TIỀN
+Bấm "Quét nhóm tiền".
+Tool sẽ đọc toàn bộ file đã import và hiển thị:
+- mức tiền
+- tổng số dòng của mức tiền đó
+- trạng thái chọn xuất
+
+Double-click một nhóm để bật/tắt.
+Có nút Chọn tất cả / Bỏ chọn tất cả.
+
+6. XUẤT
+Output mặc định:
+output_qr/
+    350000/
+    115000/
+    80000/
+    _THONG_KE.txt
+
+Nếu bật "Chia thêm thư mục theo file nguồn":
+output_qr/
+    350000/
+        FILE_1/
+        FILE_2/
+    115000/
+        FILE_1/
+        FILE_2/
+
+7. TOOL KHÔNG SỬA FILE EXCEL GỐC.
+
+LƯU Ý
+- Tool hiện hỗ trợ .xlsx và .xlsm vì ảnh QR được đọc trực tiếp từ cấu trúc ZIP/XML của Excel.
+- File .xls cũ nên Save As thành .xlsx trước.
