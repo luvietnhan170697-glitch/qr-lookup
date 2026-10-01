@@ -2,7 +2,7 @@
 chcp 65001 >nul
 setlocal
 
-set "REPO_DIR=C:\Users\Admin\Documents\SQL Server Management Studio\XUAT IMAGE QR"
+set "REPO_DIR=E:\1. TỔNG HỢP CÁC TOOL LỮ NHÂN\XUAT IMAGE QR"
 set "BRANCH=main"
 set "REMOTE=origin"
 set "LOG=%TEMP%\push_github_log.txt"
